@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ContratoPro | Sistema Profissional</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Poppins',sans-serif;min-height:100vh;color:#fff;background:#000;overflow-x:hidden;}
+    
+    #bg-video{
+        position:fixed;
+        top:0;left:0;
+        width:100%;height:100%;
+        object-fit:cover;
+        z-index:-2;
+    }
+
+    .overlay{
+        position:fixed;
+        top:0;left:0;
+        width:100%;height:100%;
+        background:linear-gradient(135deg,rgba(0,0,0,0.92),rgba(0,0,0,0.75));
+        z-index:-1;
+    }
+
+    .header{text-align:center;padding:60px 20px 40px;}
+    .header h1{
+        font-size:42px;
+        font-weight:700;
+        letter-spacing:1px;
+        background:linear-gradient(to right, #fff, #00c6ff);
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+    }
+    .header p{opacity:.9;margin-top:10px;font-size:16px;max-width:650px;margin-left:auto;margin-right:auto;line-height:1.6;}
+
+    .container{
+        max-width:1000px;
+        margin:0 auto 80px;
+        padding:50px;
+        background: rgba(15, 15, 15, 0.95); 
+        border-radius: 28px;
+        box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .section{margin-bottom:50px;}
+    .section h2{font-size:18px;font-weight:600;margin-bottom:25px;position:relative;padding-left:18px;color:#00c6ff;}
+    .section h2:before{content:"";position:absolute;left:0;top:3px;height:18px;width:5px;background:#00c6ff;border-radius:3px;}
+    
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+    .full-width{grid-column: 1 / -1;}
+
+    input, select{
+        width:100%;
+        padding:15px;
+        border-radius:12px;
+        border:none;
+        font-size:14px;
+        background: #f5f5f5;
+        color:#222;
+        transition:.3s;
+    }
+    input:focus{outline:none;box-shadow:0 0 0 3px #00c6ff;}
+    label{font-size:12px;opacity:.8;margin-bottom:8px;display:block;font-weight:500;}
+
+    .option-box{
+        margin-top:15px;
+        background:rgba(255,255,255,0.05);
+        padding:15px 20px;
+        border-radius:12px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        cursor:pointer;
+        transition:.3s;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+    .option-box:hover{background:rgba(255,255,255,0.12); border-color: #00c6ff;}
+    .option-box input{width:auto;margin-left:10px;cursor:pointer;}
+
+    .extra{display:none;margin-top:20px;padding:25px;background:rgba(0,0,0,0.3);border-radius:15px;border: 1px solid rgba(0,198,255,0.2);}
+
+    button{
+        width:100%;
+        padding:20px;
+        border:none;
+        border-radius:18px;
+        background:linear-gradient(135deg,#00c6ff,#0072ff);
+        color:white;
+        font-size:17px;
+        font-weight:700;
+        cursor:pointer;
+        transition:.4s;
+        box-shadow:0 10px 20px rgba(0,114,255,0.3);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    button:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(0,114,255,0.5);filter:brightness(1.1);}
+
+    .footer{text-align:center;font-size:13px;opacity:.6;margin-top:40px;line-height:1.8;color: #fff;}
+    .footer strong { color: #00c6ff; }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop playsinline preload="auto" id="bg-video">
+    <source src="video/fundo.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+
+<div class="header">
+    <h1>ContratoPro</h1>
+    <p>Geração automatizada de documentos jurídicos de alta complexidade. Segurança, agilidade e precisão para seus contratos de locação.</p>
+</div>
+
+<div class="container">
+<form action="/gerar-contrato" method="POST">
+
+    <div class="section">
+        <h2>Dados do Locador</h2>
+        <div class="grid">
+            <input name="nome_locador" placeholder="Nome completo" required class="full-width">
+            <input name="cpf_locador" placeholder="CPF" required>
+            <input name="endereco_locador" placeholder="Endereço Residencial Atual" required>
+        </div>
+        <label class="option-box">
+            <span>Incluir RG, Telefone e Detalhes Residenciais</span>
+            <input type="checkbox" id="chk_locador_extra">
+        </label>
+        <div class="extra" id="box_locador_extra">
+            <div class="grid">
+                <input name="rg_locador" placeholder="RG">
+                <input name="orgao_locador" placeholder="Órgão Expedidor / UF">
+                <input name="num_res_locador" placeholder="Nº da Residência">
+                <input name="tel_locador" placeholder="Telefone / WhatsApp">
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Dados do Locatário</h2>
+        <div class="grid">
+            <input name="nome_locatario" placeholder="Nome completo" required class="full-width">
+            <input name="cpf_locatario" placeholder="CPF" required>
+            <input name="endereco_locatario" placeholder="Endereço Residencial Atual" required>
+        </div>
+        <label class="option-box">
+            <span>Incluir RG, Telefone e Detalhes Residenciais</span>
+            <input type="checkbox" id="chk_latario_extra">
+        </label>
+        <div class="extra" id="box_latario_extra">
+            <div class="grid">
+                <input name="rg_locatario" placeholder="RG">
+                <input name="orgao_locatario" placeholder="Órgão Expedidor / UF">
+                <input name="num_res_locatario" placeholder="Nº da Residência">
+                <input name="tel_locatario" placeholder="Telefone / WhatsApp">
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Localização do Imóvel Locado</h2>
+        <input name="endereco_imovel" placeholder="Endereço completo do imóvel objeto da locação" required>
+    </div>
+
+    <div class="section">
+        <h2>Prazos e Vigência</h2>
+        <div class="grid">
+            <div><label>Início da Locação</label><input type="date" name="data_inicio" required></div>
+            <div><label>Data de Assinatura</label><input type="date" name="data_contrato" required></div>
+            <div><label>Prazo Total (Meses)</label><input type="number" name="prazo" placeholder="Ex: 12" required></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Condições Financeiras</h2>
+        <div class="grid">
+            <input name="valor" placeholder="Aluguel Mensal (R$)" required>
+            <input name="valor_extenso" placeholder="Valor por extenso" required>
+            <input name="dia_pagamento" placeholder="Dia do vencimento" required>
+            <input name="forma_pagamento" placeholder="Meio de pagamento (PIX, Boleto...)" required>
+        </div>
+        <label class="option-box"><span>Ativar Cláusula de Reajuste Anual</span><input type="checkbox" id="chk_reajuste" name="chk_reajuste"></label>
+        <div class="extra" id="box_reajuste"><input name="indice_reajuste" placeholder="Índice (Ex: IGPM / IPCA)"></div>
+    </div>
+
+    <div class="section">
+        <h2>Garantia e Rescisão</h2>
+        <div class="grid">
+            <label class="option-box"><span>Definir Garantia</span><input type="checkbox" id="chk_garantia" name="chk_garantia"></label>
+            <label class="option-box"><span>Definir Multa Rescisória</span><input type="checkbox" id="chk_multa" name="chk_multa"></label>
+        </div>
+        <div class="extra" id="box_garantia">
+            <div class="grid">
+                <input name="tipo_garantia" placeholder="Tipo (ex: Caução / Fiador)">
+                <input name="valor_caucao" placeholder="Valor da Garantia">
+            </div>
+        </div>
+        <div class="extra" id="box_multa">
+            <div class="grid">
+                <input name="multa_alugueis" placeholder="Qtd. aluguéis de multa">
+                <input name="multa_extenso" placeholder="Extenso da multa">
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Foro Eleito</h2>
+        <input name="foro" placeholder="Cidade / Comarca de eleição" required>
+    </div>
+
+    <button type="submit">GERAR CONTRATO FINALIZADO</button>
+</form>
+
+<div class="footer">
+    © 2026 ContratoPro • Sistema Profissional de Documentação<br>
+    <strong>Desenvolvido por Luiz Marcelo</strong>
+</div>
+</div>
+
+<script>
+    function setupToggle(chkId, boxId) {
+        const chk = document.getElementById(chkId);
+        const box = document.getElementById(boxId);
+        if(chk && box) {
+            chk.addEventListener("change", function() {
+                box.style.display = this.checked ? "grid" : "none";
+            });
+        }
+    }
+    setupToggle("chk_locador_extra", "box_locador_extra");
+    setupToggle("chk_latario_extra", "box_latario_extra");
+    setupToggle("chk_reajuste", "box_reajuste");
+    setupToggle("chk_garantia", "box_garantia");
+    setupToggle("chk_multa", "box_multa");
+</script>
+</body>
+</html>

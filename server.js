@@ -7,7 +7,14 @@ const app = express();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// Serve os arquivos da pasta public (HTML, CSS, Vídeo)
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Rota Raiz para evitar "Cannot GET /"
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 app.post('/gerar-contrato', async (req, res) => {
     try {
@@ -96,9 +103,16 @@ app.post('/gerar-contrato', async (req, res) => {
         const buffer = await Packer.toBuffer(doc);
         const nomeArquivo = `Contrato_${safe(d.nome_locatario).replace(/\s+/g, '_')}.docx`;
 
-        res.set({ "Content-Type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "Content-Disposition": `attachment; filename=${nomeArquivo}`, "Content-Length": buffer.length });
-        res.end(buffer);
-    } catch (e) { console.error(e); res.status(500).send("Erro no servidor."); }
+        res.set({ 
+            "Content-Type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", 
+            "Content-Disposition": `attachment; filename=${nomeArquivo}`, 
+            "Content-Length": buffer.length 
+        });
+        res.send(buffer);
+    } catch (e) { 
+        console.error(e); 
+        res.status(500).send("Erro no servidor."); 
+    }
 });
 
 const PORT = process.env.PORT || 3000;
