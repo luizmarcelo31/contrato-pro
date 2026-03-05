@@ -8,100 +8,28 @@
 <style>
     *{margin:0;padding:0;box-sizing:border-box;}
     body{font-family:'Poppins',sans-serif;min-height:100vh;color:#fff;background:#000;overflow-x:hidden;}
-    
-    #bg-video{
-        position:fixed;
-        top:0;left:0;
-        width:100%;height:100%;
-        object-fit:cover;
-        z-index:-2;
-    }
-
-    .overlay{
-        position:fixed;
-        top:0;left:0;
-        width:100%;height:100%;
-        background:linear-gradient(135deg,rgba(0,0,0,0.92),rgba(0,0,0,0.75));
-        z-index:-1;
-    }
-
-    .header{text-align:center;padding:60px 20px 40px;}
-    .header h1{
-        font-size:42px;
-        font-weight:700;
-        letter-spacing:1px;
-        background:linear-gradient(to right, #fff, #00c6ff);
-        -webkit-background-clip:text;
-        -webkit-text-fill-color:transparent;
-    }
-    .header p{opacity:.9;margin-top:10px;font-size:16px;max-width:650px;margin-left:auto;margin-right:auto;line-height:1.6;}
-
-    .container{
-        max-width:1000px;
-        margin:0 auto 80px;
-        padding:50px;
-        background: rgba(15, 15, 15, 0.95); 
-        border-radius: 28px;
-        box-shadow: 0 40px 100px rgba(0,0,0,0.7);
-        border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .section{margin-bottom:50px;}
-    .section h2{font-size:18px;font-weight:600;margin-bottom:25px;position:relative;padding-left:18px;color:#00c6ff;}
-    .section h2:before{content:"";position:absolute;left:0;top:3px;height:18px;width:5px;background:#00c6ff;border-radius:3px;}
-    
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
-    .full-width{grid-column: 1 / -1;}
-
-    input, select{
-        width:100%;
-        padding:15px;
-        border-radius:12px;
-        border:none;
-        font-size:14px;
-        background: #f5f5f5;
-        color:#222;
-        transition:.3s;
-    }
-    input:focus{outline:none;box-shadow:0 0 0 3px #00c6ff;}
-    label{font-size:12px;opacity:.8;margin-bottom:8px;display:block;font-weight:500;}
-
-    .option-box{
-        margin-top:15px;
-        background:rgba(255,255,255,0.05);
-        padding:15px 20px;
-        border-radius:12px;
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        cursor:pointer;
-        transition:.3s;
-        border: 1px solid rgba(255,255,255,0.1);
-    }
-    .option-box:hover{background:rgba(255,255,255,0.12); border-color: #00c6ff;}
-    .option-box input{width:auto;margin-left:10px;cursor:pointer;}
-
-    .extra{display:none;margin-top:20px;padding:25px;background:rgba(0,0,0,0.3);border-radius:15px;border: 1px solid rgba(0,198,255,0.2);}
-
-    button{
-        width:100%;
-        padding:20px;
-        border:none;
-        border-radius:18px;
-        background:linear-gradient(135deg,#00c6ff,#0072ff);
-        color:white;
-        font-size:17px;
-        font-weight:700;
-        cursor:pointer;
-        transition:.4s;
-        box-shadow:0 10px 20px rgba(0,114,255,0.3);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-    button:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(0,114,255,0.5);filter:brightness(1.1);}
-
-    .footer{text-align:center;font-size:13px;opacity:.6;margin-top:40px;line-height:1.8;color: #fff;}
-    .footer strong { color: #00c6ff; }
+    #bg-video{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+    .overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(0,0,0,0.92),rgba(0,0,0,0.75));z-index:-1}
+    .header{text-align:center;padding:60px 20px 40px}
+    .header h1{font-size:42px;font-weight:700;letter-spacing:1px;background:linear-gradient(to right,#fff,#00c6ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .header p{opacity:.9;margin-top:10px;font-size:16px;max-width:650px;margin-left:auto;margin-right:auto;line-height:1.6}
+    .container{max-width:1000px;margin:0 auto 80px;padding:50px;background: rgba(15,15,15,0.95);border-radius:28px;box-shadow:0 40px 100px rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.1)}
+    .section{margin-bottom:50px}
+    .section h2{font-size:18px;font-weight:600;margin-bottom:25px;position:relative;padding-left:18px;color:#00c6ff}
+    .section h2:before{content:"";position:absolute;left:0;top:3px;height:18px;width:5px;background:#00c6ff;border-radius:3px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .full-width{grid-column:1/-1}
+    input,select{width:100%;padding:15px;border-radius:12px;border:none;font-size:14px;background:#f5f5f5;color:#222;transition:.3s}
+    input:focus{outline:none;box-shadow:0 0 0 3px #00c6ff}
+    label{font-size:12px;opacity:.8;margin-bottom:8px;display:block;font-weight:500}
+    .option-box{margin-top:15px;background:rgba(255,255,255,0.05);padding:15px 20px;border-radius:12px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:.3s;border:1px solid rgba(255,255,255,0.1)}
+    .option-box:hover{background:rgba(255,255,255,0.12);border-color:#00c6ff}
+    .option-box input{width:auto;margin-left:10px;cursor:pointer}
+    .extra{display:none;margin-top:20px;padding:25px;background:rgba(0,0,0,0.3);border-radius:15px;border:1px solid rgba(0,198,255,0.2)}
+    button{width:100%;padding:20px;border:none;border-radius:18px;background:linear-gradient(135deg,#00c6ff,#0072ff);color:white;font-size:17px;font-weight:700;cursor:pointer;transition:.4s;box-shadow:0 10px 20px rgba(0,114,255,0.3);text-transform:uppercase;letter-spacing:1px}
+    button:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(0,114,255,0.5);filter:brightness(1.1)}
+    .footer{text-align:center;font-size:13px;opacity:.6;margin-top:40px;line-height:1.8;color:#fff}
+    .footer strong{color:#00c6ff}
 </style>
 </head>
 <body>
@@ -117,14 +45,14 @@
 </div>
 
 <div class="container">
-<form action="/gerar-contrato" method="POST">
+<form id="mainForm" action="/gerar-contrato" method="POST">
 
     <div class="section">
         <h2>Dados do Locador</h2>
         <div class="grid">
             <input name="nome_locador" placeholder="Nome completo" required class="full-width">
             <input name="cpf_locador" placeholder="CPF" required>
-            <input name="endereco_locador" placeholder="Endereço Residencial Atual" required>
+            <input name="endereco_locador" placeholder="Endereço Residencial" required>
         </div>
         <label class="option-box">
             <span>Incluir RG, Telefone e Detalhes Residenciais</span>
@@ -133,7 +61,17 @@
         <div class="extra" id="box_locador_extra">
             <div class="grid">
                 <input name="rg_locador" placeholder="RG">
-                <input name="orgao_locador" placeholder="Órgão Expedidor / UF">
+                <input name="orgao_locador" placeholder="Órgão Expedidor">
+                <select name="uf_locador" aria-label="UF Locador">
+                    <option value="">UF</option>
+                    <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+                    <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+                    <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+                    <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+                    <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+                    <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+                    <option>SP</option><option>SE</option><option>TO</option>
+                </select>
                 <input name="num_res_locador" placeholder="Nº da Residência">
                 <input name="tel_locador" placeholder="Telefone / WhatsApp">
             </div>
@@ -145,16 +83,26 @@
         <div class="grid">
             <input name="nome_locatario" placeholder="Nome completo" required class="full-width">
             <input name="cpf_locatario" placeholder="CPF" required>
-            <input name="endereco_locatario" placeholder="Endereço Residencial Atual" required>
+            <input name="endereco_locatario" placeholder="Endereço Residencial" required>
         </div>
         <label class="option-box">
             <span>Incluir RG, Telefone e Detalhes Residenciais</span>
-            <input type="checkbox" id="chk_latario_extra">
+            <input type="checkbox" id="chk_locatario_extra">
         </label>
-        <div class="extra" id="box_latario_extra">
+        <div class="extra" id="box_locatario_extra">
             <div class="grid">
                 <input name="rg_locatario" placeholder="RG">
-                <input name="orgao_locatario" placeholder="Órgão Expedidor / UF">
+                <input name="orgao_locatario" placeholder="Órgão Expedidor">
+                <select name="uf_locatario" aria-label="UF Locatário">
+                    <option value="">UF</option>
+                    <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+                    <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+                    <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+                    <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+                    <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+                    <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+                    <option>SP</option><option>SE</option><option>TO</option>
+                </select>
                 <input name="num_res_locatario" placeholder="Nº da Residência">
                 <input name="tel_locatario" placeholder="Telefone / WhatsApp">
             </div>
@@ -181,10 +129,34 @@
             <input name="valor" placeholder="Aluguel Mensal (R$)" required>
             <input name="valor_extenso" placeholder="Valor por extenso" required>
             <input name="dia_pagamento" placeholder="Dia do vencimento" required>
-            <input name="forma_pagamento" placeholder="Meio de pagamento (PIX, Boleto...)" required>
+            <input type="hidden" name="forma_pagamento" id="forma_pagamento_hidden">
         </div>
-        <label class="option-box"><span>Ativar Cláusula de Reajuste Anual</span><input type="checkbox" id="chk_reajuste" name="chk_reajuste"></label>
-        <div class="extra" id="box_reajuste"><input name="indice_reajuste" placeholder="Índice (Ex: IGPM / IPCA)"></div>
+
+        <div style="margin-top:12px;">
+            <label class="option-box"><span>Forma de Pagamento: PIX</span><input type="checkbox" id="chk_pag_pix" name="chk_pag_pix"></label>
+            <div class="extra" id="box_pag_pix"><input name="pix_key" placeholder="Chave PIX (CPF / E-mail / Celular / EVP)"></div>
+
+            <label class="option-box"><span>Depósito / Transferência Bancária</span><input type="checkbox" id="chk_pag_deposito" name="chk_pag_deposito"></label>
+            <div class="extra" id="box_pag_deposito">
+                <div class="grid">
+                    <input name="banco_nome" placeholder="Banco (ex: Banco do Brasil)">
+                    <input name="banco_agencia" placeholder="Agência">
+                    <input name="banco_conta" placeholder="Conta (Tipo/Conta)">
+                </div>
+            </div>
+
+            <label class="option-box"><span>Em Espécie</span><input type="checkbox" id="chk_pag_especie" name="chk_pag_especie"></label>
+            <div class="extra" id="box_pag_especie"><input name="pag_especie_obs" placeholder="Observações sobre pagamento em espécie"></div>
+
+            <label class="option-box" style="margin-top:12px;"><span>Ativar Cláusula de Reajuste Anual</span><input type="checkbox" id="chk_reajuste" name="chk_reajuste"></label>
+            <div class="extra" id="box_reajuste"><input name="indice_reajuste" placeholder="Índice (Ex: IGPM / IPCA)"></div>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+            <label style="display:flex;align-items:center;gap:8px;"><input type="radio" name="export_format" value="docx" checked> DOCX</label>
+            <label style="display:flex;align-items:center;gap:8px;"><input type="radio" name="export_format" value="pdf"> PDF (Salvar/Imprimir)</label>
+            <button type="button" id="btn_preview" style="width:auto;padding:10px 16px;border-radius:12px;">Pré-visualizar</button>
+        </div>
     </div>
 
     <div class="section">
@@ -225,17 +197,131 @@
     function setupToggle(chkId, boxId) {
         const chk = document.getElementById(chkId);
         const box = document.getElementById(boxId);
-        if(chk && box) {
-            chk.addEventListener("change", function() {
-                box.style.display = this.checked ? "grid" : "none";
-            });
-        }
+        if(chk && box) chk.addEventListener('change', () => box.style.display = chk.checked ? 'grid' : 'none');
     }
-    setupToggle("chk_locador_extra", "box_locador_extra");
-    setupToggle("chk_latario_extra", "box_latario_extra");
-    setupToggle("chk_reajuste", "box_reajuste");
-    setupToggle("chk_garantia", "box_garantia");
-    setupToggle("chk_multa", "box_multa");
+
+    ['chk_locador_extra','chk_locatario_extra','chk_reajuste','chk_garantia','chk_multa','chk_pag_pix','chk_pag_deposito','chk_pag_especie'].forEach(id=>{
+        const boxMap = { chk_locador_extra:'box_locador_extra', chk_locatario_extra:'box_locatario_extra', chk_reajuste:'box_reajuste', chk_garantia:'box_garantia', chk_multa:'box_multa', chk_pag_pix:'box_pag_pix', chk_pag_deposito:'box_pag_deposito', chk_pag_especie:'box_pag_especie' };
+        setupToggle(id, boxMap[id]);
+    });
+
+    function safe(v){ return v ? v : '__________'; }
+
+    function formatDates(form){
+        const inicio = form.get('data_inicio');
+        let dInicio='', dFim='';
+        if(inicio){
+            const i = new Date(inicio);
+            if(!isNaN(i)){
+                const fim = new Date(i);
+                const prazo = parseInt(form.get('prazo')||0);
+                fim.setMonth(fim.getMonth() + prazo);
+                dInicio = i.toLocaleDateString('pt-BR');
+                dFim = fim.toLocaleDateString('pt-BR');
+            }
+        }
+        const dContrato = form.get('data_contrato') ? new Date(form.get('data_contrato')).toLocaleDateString('pt-BR') : new Date().toLocaleDateString('pt-BR');
+        return { dInicio, dFim, dContrato };
+    }
+
+    function buildContractHTML(form){
+        const inicio = formatDates(form);
+        const p = (s)=>'<p>'+s+'</p>';
+        const parts = [];
+        parts.push('<h1 style="text-align:center">CONTRATO DE LOCAÇÃO DE IMÓVEL RESIDENCIAL</h1>');
+        parts.push('<h3>CLÁUSULA 1ª – DAS PARTES</h3>');
+        parts.push(p('LOCADOR(A): '+safe(form.get('nome_locador'))+', CPF nº '+safe(form.get('cpf_locador'))+(form.get('rg_locador')?(', RG nº '+safe(form.get('rg_locador'))+' '+safe(form.get('uf_locador'))):'')+', residente e domiciliado(a) em '+safe(form.get('endereco_locador'))+(form.get('num_res_locador')?(', nº '+safe(form.get('num_res_locador'))):'')+(form.get('tel_locador')?(', Contato: '+safe(form.get('tel_locador'))):'')+'.'));
+        parts.push(p('LOCATÁRIO(A): '+safe(form.get('nome_locatario'))+', CPF nº '+safe(form.get('cpf_locatario'))+(form.get('rg_locatario')?(', RG nº '+safe(form.get('rg_locatario'))+' '+safe(form.get('uf_locatario'))):'')+', residente e domiciliado(a) em '+safe(form.get('endereco_locatario'))+(form.get('num_res_locatario')?(', nº '+safe(form.get('num_res_locatario'))):'')+(form.get('tel_locatario')?(', Contato: '+safe(form.get('tel_locatario'))):'')+'.'));
+        parts.push('<h3>CLÁUSULA 2ª – DO OBJETO</h3>');
+        parts.push(p('O objeto da presente locação é o imóvel residencial localizado em: '+safe(form.get('endereco_imovel'))+'.'));
+        parts.push('<h3>CLÁUSULA 3ª – DO PRAZO</h3>');
+        parts.push(p('A locação terá o prazo determinado de '+safe(form.get('prazo'))+' meses, com início em '+safe(inicio.dInicio)+' e término em '+safe(inicio.dFim)+'.'));
+
+        parts.push('<h3>CLÁUSULA 4ª – DO VALOR E PAGAMENTO</h3>');
+        const forma = [];
+        if(form.get('chk_pag_pix')) forma.push('PIX: '+safe(form.get('pix_key')));
+        if(form.get('chk_pag_deposito')) forma.push('Depósito: '+safe(form.get('banco_nome'))+' Agência '+safe(form.get('banco_agencia'))+' Conta '+safe(form.get('banco_conta')));
+        if(form.get('chk_pag_especie')) forma.push('Em Espécie'+(form.get('pag_especie_obs')?(' ('+safe(form.get('pag_especie_obs'))+')'):''));
+        if(forma.length===0) forma.push(safe(form.get('forma_pagamento'))||'__________');
+        parts.push(p('O aluguel mensal é fixado em R$ '+safe(form.get('valor'))+' ('+safe(form.get('valor_extenso'))+'). O pagamento deverá ser efetuado até o dia '+safe(form.get('dia_pagamento'))+' de cada mês, através de '+forma.join('; ')+'.'));
+
+        if(form.get('chk_reajuste')) parts.push('<h3>CLÁUSULA 10ª – DO REAJUSTE ANUAL</h3>'+p('O valor será reajustado anualmente pelo índice '+safe(form.get('indice_reajuste'))));
+        if(form.get('chk_garantia')) parts.push('<h3>CLÁUSULA 11ª – DA GARANTIA</h3>'+p('Como garantia, '+safe(form.get('tipo_garantia'))+' no valor de R$ '+safe(form.get('valor_caucao'))));
+        if(form.get('chk_multa')) parts.push('<h3>CLÁUSULA 12ª – DA MULTA RESCISÓRIA</h3>'+p('Multa equivalente a '+safe(form.get('multa_alugueis'))+' ('+safe(form.get('multa_extenso'))+') aluguéis.'));
+
+        parts.push('<h3>CLÁUSULA 13ª – DA DEVOLUÇÃO DO IMÓVEL</h3>'+p('Ao término do contrato, o imóvel deverá ser devolvido pintado e limpo, com todas as contas quitadas e chaves entregues formalmente ao LOCADOR.'));
+        parts.push('<h3>CLÁUSULA 14ª – DO FORO</h3>'+p('As partes elegem o Foro da Comarca de '+safe(form.get('foro'))+'.'));
+        parts.push(p(safe(form.get('foro'))+', '+safe(inicio.dContrato)+'.'));
+
+        return '<div style="font-family:Arial,Helvetica,sans-serif;color:#222;padding:20px;max-width:800px;margin:0 auto;background:#fff;">'+parts.join('\n')+'</div>';
+    }
+
+    function openPreview(winHtml){
+        const w = window.open('','_blank','width=900,height=800');
+        if(!w) return alert('Bloqueador de pop-ups impediu a pré-visualização. Permita pop-ups e tente novamente.');
+        const previewHtml = '<!doctype html><html><head><meta charset="utf-8"><title>Pré-visualização do Contrato</title></head><body>' + winHtml + '<div style="text-align:center;margin:20px;"><button id="printBtn">Imprimir / Salvar PDF</button> <button id="docxBtn" onclick="(function(){try{var openerForm = window.opener && window.opener.document ? window.opener.document.getElementById(\'mainForm\') : null; if(!openerForm){alert(\'Formulário não encontrado na janela principal.\');return;} var fd = new FormData(openerForm); var action = openerForm.action && openerForm.action.length ? openerForm.action : \'/gerar-contrato\'; if(!/^https?:\\/\\//i.test(action)) { var origin = window.opener.location && window.opener.location.origin ? window.opener.location.origin : (window.opener.location.protocol + \'//\' + window.opener.location.host); action = origin + action; } var f = document.createElement(\'form\'); f.method=\'POST\'; f.action = action; f.target=\'_blank\'; f.style.display=\'none\'; for(var pair of fd.entries()){ var i=document.createElement(\'input\'); i.type=\'hidden\'; i.name=pair[0]; i.value=pair[1]; f.appendChild(i); } document.body.appendChild(f); f.submit(); document.body.removeChild(f);}catch(e){alert(\'Erro ao tentar gerar DOCX: \' + e.message);} })()">Gerar DOCX</button></div></body></html>';
+        w.document.write(previewHtml);
+        w.document.close();
+        w.addEventListener('load', ()=>{
+            const printBtn = w.document.getElementById('printBtn');
+            const docxBtn = w.document.getElementById('docxBtn');
+            if(printBtn) printBtn.addEventListener('click', ()=> w.print());
+            if(docxBtn) docxBtn.addEventListener('click', ()=> {
+                try{ submitFormAsPostNewTab(document.getElementById('mainForm')); }catch(e){ console.error(e); }
+            });
+        });
+    }
+
+    function updateHiddenForma(fd){
+        const parts = [];
+        if(fd.get('chk_pag_pix')) parts.push('PIX: '+(fd.get('pix_key')||''));
+        if(fd.get('chk_pag_deposito')) parts.push('Depósito: '+(fd.get('banco_nome')||''));
+        if(fd.get('chk_pag_especie')) parts.push('Em Espécie');
+        const val = parts.length? parts.join('; ') : '';
+        const hidden = document.getElementById('forma_pagamento_hidden');
+        if(hidden) hidden.value = val;
+    }
+
+    // Submete o formulário por POST em uma nova aba (cria formulário temporário), garantindo download do .docx
+    function submitFormAsPostNewTab(formEl){
+        if(!formEl) return;
+        const fd = new FormData(formEl);
+        // atualiza hidden antes de criar o form
+        updateHiddenForma(fd);
+        const tmpForm = document.createElement('form');
+        tmpForm.method = 'POST';
+        tmpForm.action = formEl.action || '/gerar-contrato';
+        tmpForm.target = '_blank';
+        tmpForm.style.display = 'none';
+        for(const [k,v] of fd.entries()){
+            const inp = document.createElement('input');
+            inp.type = 'hidden';
+            inp.name = k;
+            inp.value = v;
+            tmpForm.appendChild(inp);
+        }
+        document.body.appendChild(tmpForm);
+        tmpForm.submit();
+        document.body.removeChild(tmpForm);
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+        const formEl = document.getElementById('mainForm');
+        document.getElementById('btn_preview').addEventListener('click', ()=>{
+            const fd = new FormData(formEl);
+            updateHiddenForma(fd);
+            openPreview(buildContractHTML(fd));
+        });
+
+        formEl.addEventListener('submit', (e)=>{
+            updateHiddenForma(new FormData(formEl));
+            const exportFormat = formEl.querySelector('input[name="export_format"]:checked').value;
+            if(exportFormat === 'pdf'){
+                e.preventDefault();
+                openPreview(buildContractHTML(new FormData(formEl)));
+            }
+        });
+    });
 </script>
 </body>
 </html>
